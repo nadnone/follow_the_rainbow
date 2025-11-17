@@ -1,0 +1,81 @@
+* {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --size: 10;
+}
+
+body {
+  background-color: lightblue;
+}
+
+.panel {
+  font-size: 18pt;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 76pt;
+  background-color: lightgray;
+}
+
+svg {
+  display: absolute;
+}
+
+
+
+.xAxis {
+  position: absolute;
+  background-color: black;
+  height: 4pt;
+  width: 100%;
+  bottom: 50vh;
+  z-index: -1;
+  transform: translateY(-2.5pt));
+}
+
+.zAxis {
+  position: absolute;
+  background-color: black;
+  width: 5pt;
+  height: 100%;
+  right: 50vw;
+  z-index: -1;
+  transform: translateX(-2.5pt));
+}
+
+.arrowX {
+  position: absolute;
+  width: calc(1550px / var(--size));
+  height: calc(861px / var(--size));
+  right: 0;
+  transform: rotate(-90deg) translateX(25%) translateY(45%);
+}
+
+.zAxis span {
+  position: absolute;
+  font-size: 48pt;
+  width: 100%;
+  height: 48pt;
+  transform: translateY(calc(100vh - 128pt)) translateX(1.125vw);
+}
+
+.xAxis span {
+  position: absolute;
+  font-size: 48pt;
+  transform: translateX(94%) translateY(5%);
+}
+
+.arrowY {
+  position: absolute;
+  width: calc(1550px / var(--size));
+  height: calc(861px / var(--size));
+  bottom: 0;
+  transform: translateX(calc(-50% + 2.5pt)) translateY(5%);
+}
