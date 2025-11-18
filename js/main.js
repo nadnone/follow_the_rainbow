@@ -3,18 +3,10 @@ import { Circle } from './Circle.js'
 import { world_data } from './misc.js'
 
 const CURRENT = {
-  "title": "TITLE",
+  "title": "",
   "x": 0,
   "y": 0
 }
-
-const colors = [
-  "red",
-  "blue",
-  "green",
-  "darkred",
-  "lightred"
-]
 
 const homesList = [];
 

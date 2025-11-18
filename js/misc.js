@@ -11,7 +11,9 @@ document.body.addEventListener('mousemove', (ev) => {
 
       // TODO: convert map world to screen world
 
-      document.querySelector(".title").innerText = ev.target.attributes.title?.value;
+      const title = ev.target.attributes.title?.value;
+
+      document.querySelector(".title").innerText = (title != undefined) ? title : "FREE"
       document.querySelector(".coords").innerText = `X: ${world_x} Z: ${world_y}`;
 
 });
