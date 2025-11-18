@@ -14,7 +14,7 @@ document.body.addEventListener('mousemove', (ev) => {
       const title = ev.target.attributes.title?.value;
 
       document.querySelector(".title").innerText = (title != undefined) ? title : "FREE"
-      document.querySelector(".coords").innerText = `X: ${world_x} Z: ${world_y}`;
+      document.querySelector(".coords").innerText = `X: ${world_x.toFixed(0)} Z: ${world_y.toFixed(0)}`;
 
 });
 
