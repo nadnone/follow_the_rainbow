@@ -79,14 +79,14 @@ function grid_generator() {
     svg.setAttribute("viewBox", `0 0 ${10*200*2} 25`)
 
     // X
-    for(let i = -10; i <= 10; i++) {
+    for(let i = -20; i <= 20; i++) {
 
         const line = document.createElement('line');
 
         line.setAttribute('x1', 0);
-        line.setAttribute('y1', i * 200 + 20)
+        line.setAttribute('y1', i * 200)
         line.setAttribute('x2', 10*200*2);
-        line.setAttribute('y2', i * 200 + 20);
+        line.setAttribute('y2', i * 200);
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
 
@@ -95,14 +95,14 @@ function grid_generator() {
     }
 
     // Z
-    for(let i = -10; i <= 10; i++) {
+    for(let i = -20; i <= 20; i++) {
 
         const line = document.createElement('line');
 
         line.setAttribute('y1', -10*200*2);
-        line.setAttribute('x1', (i + 10) * 200 + 20)
+        line.setAttribute('x1', (i + 10) * 200)
         line.setAttribute('y2', 10*200*2);
-        line.setAttribute('x2', (i + 10) * 200 + 20);
+        line.setAttribute('x2', (i + 10) * 200);
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
 

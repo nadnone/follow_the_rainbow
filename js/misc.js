@@ -5,9 +5,8 @@ const world = await get_world_data();
 
 document.body.addEventListener('mousemove', (ev) => {
 
-      let world_x = (ev.clientX - CENTER.x) * FACTOR
-      let world_y = (ev.clientY - CENTER.y) * FACTOR
-
+      let world_x = world.width / (window.innerWidth / ev.clientX) - world.width/2
+      let world_y = world.height / (window.innerHeight/ev.clientY) - world.height/2
 
       const title = ev.target.attributes.title?.value;
 

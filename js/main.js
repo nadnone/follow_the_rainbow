@@ -47,4 +47,4 @@ async function init() {
 }
 
 init()
-draw_graduation()
+draw_graduation(world_data)

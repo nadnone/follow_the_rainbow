@@ -17,13 +17,12 @@ export class Circle {
     this.#title = title;
     this.#color = color;
     this.#body = document.body;
-    this.draw(CENTER.x + x/FACTOR, CENTER.y + y/FACTOR)
+    this.draw(x + CENTER.x, y + CENTER.y)
     this.world = world
 
     let svg = document.querySelector("svg");
     svg.setAttribute("width", this.#r)
     svg.setAttribute("height", this.#r)
-
 
   }
 
@@ -49,6 +48,7 @@ export class Circle {
 
 
     let svg = document.querySelector('.graph')
+    svg.setAttribute("viewBox", `0 0 ${10*200*2} ${30}`)
     svg.appendChild(circle);
     svg.appendChild(base);
     this.#body.appendChild(svg);
