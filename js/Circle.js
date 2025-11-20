@@ -46,7 +46,7 @@ export class Circle {
     base.setAttribute("title", this.#title)
 
 
-    let svg = document.querySelector("svg")
+    let svg = document.querySelector('.graph')
     svg.appendChild(circle);
     svg.appendChild(base);
     this.#body.appendChild(svg);

@@ -1,6 +1,7 @@
 import { get_homes_data, get_world_data } from './fetches.js'
 import { Circle } from './Circle.js'
 import { world_data } from './misc.js'
+import { grid_generator, scale_generator } from './gridGenerator.js'
 
 const CURRENT = {
   "title": "",
@@ -46,3 +47,6 @@ async function init() {
 }
 
 init()
+
+grid_generator()
+scale_generator()
