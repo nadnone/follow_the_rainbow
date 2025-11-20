@@ -9,8 +9,6 @@ document.body.addEventListener('mousemove', (ev) => {
       let world_y = (ev.clientY - CENTER.y) * FACTOR
 
 
-      // TODO: convert map world to screen world
-
       const title = ev.target.attributes.title?.value;
 
       document.querySelector(".title").innerText = (title != undefined) ? title : "FREE"

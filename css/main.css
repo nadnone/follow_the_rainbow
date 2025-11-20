@@ -50,6 +50,12 @@ body {
   z-index: 0;
 }
 
+.axisTEXT {
+  font: 128pt sans-serif;
+  fill: black;
+  z-index: 0;
+}
+
 .gridSVG {
   display: block;
   display: absolute;

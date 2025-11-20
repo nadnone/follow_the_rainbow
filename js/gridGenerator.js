@@ -35,6 +35,40 @@ function scale_generator() {
 
     }
 
+    // right (x)
+    let arrow = document.createElement('polyline')
+    let points = "3800,0 3800,-60 4000,-30"
+    arrow.setAttribute("points", points);
+    arrow.setAttribute("style", "fill:black")
+    svg.appendChild(arrow);
+
+    // down (z)
+    arrow = document.createElement('polyline')
+    points = "1970,1500 1940,1300 2000,1300"
+    arrow.setAttribute("points", points);
+    arrow.setAttribute("style", "fill:black")
+    svg.appendChild(arrow);
+
+
+    // Axis letters
+
+    // Z
+    let text = document.createElement('text');
+    text.innerText = "Z";
+    text.setAttribute("x", 1800);
+    text.setAttribute("y", 1300);
+    text.setAttribute("class", "axisTEXT")
+    svg.appendChild(text);
+
+    // X
+    text = document.createElement('text');
+    text.innerText = "X";
+    text.setAttribute("x", 3600);
+    text.setAttribute("y", -60);
+    text.setAttribute("class", "axisTEXT")
+    svg.appendChild(text);
+
+
     document.body.appendChild(svg);
 
 }
@@ -80,7 +114,12 @@ function grid_generator() {
 
 }
 
+
+function draw_graduation() {
+    grid_generator()
+    scale_generator()
+}
+
 export {
-    grid_generator,
-    scale_generator
+    draw_graduation
 }

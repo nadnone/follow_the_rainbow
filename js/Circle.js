@@ -29,13 +29,15 @@ export class Circle {
 
   draw(x = this.#x, y = this.#y) {
 
+    let size = (window.innerWidth < 1201) ? 1.5 : 5;
+
     let circle = document.createElement("circle");
     circle.setAttribute("cx", x);
     circle.setAttribute("cy", y);
     circle.setAttribute("r", this.#r);
     circle.setAttribute("stroke", this.#color)
     circle.setAttribute("fill", "#ffffff00")
-    circle.setAttribute("stroke-width", 10)
+    circle.setAttribute("stroke-width", size)
     circle.setAttribute("title", this.#title)
 
     let base = document.createElement("circle");
