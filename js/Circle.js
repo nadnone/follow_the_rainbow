@@ -1,5 +1,6 @@
-import { CENTER, FACTOR } from './constants.js'
+import { CENTER } from './constants.js'
 import { get_world_data } from './fetches.js'
+
 export class Circle {
 
   #x;

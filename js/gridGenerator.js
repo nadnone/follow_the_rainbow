@@ -36,14 +36,14 @@ function scale_generator(world) {
 
     // right (x)
     let arrow = document.createElement('polyline')
-    let points = "3800,0 3800,-60 4000,-30"
+    let points = `${CENTER.x + 1800},${CENTER.y - 300} ${CENTER.x + 1800},${CENTER.y - 100} ${CENTER.x + 2000},${CENTER.y - 200}`
     arrow.setAttribute("points", points);
     arrow.setAttribute("style", "fill:black")
     svg.appendChild(arrow);
 
     // down (z)
     arrow = document.createElement('polyline')
-    points = "1970,1500 1940,1300 2000,1300"
+    points = `${CENTER.x - 200},${CENTER.y + 1800} ${CENTER.x - 300},${CENTER.y + 1600} ${CENTER.x - 100},${CENTER.y + 1600}`
     arrow.setAttribute("points", points);
     arrow.setAttribute("style", "fill:black")
     svg.appendChild(arrow);
@@ -54,16 +54,16 @@ function scale_generator(world) {
     // Z
     let text = document.createElement('text');
     text.innerText = "Z";
-    text.setAttribute("x", 1800);
-    text.setAttribute("y", 1300);
+    text.setAttribute("x", CENTER.x - 250);
+    text.setAttribute("y", CENTER.y + 1500);
     text.setAttribute("class", "axisTEXT")
     svg.appendChild(text);
 
     // X
     text = document.createElement('text');
     text.innerText = "X";
-    text.setAttribute("x", 3600);
-    text.setAttribute("y", -60);
+    text.setAttribute("x", CENTER.x + 1550);
+    text.setAttribute("y", CENTER.y - 150);
     text.setAttribute("class", "axisTEXT")
     svg.appendChild(text);
 
@@ -78,7 +78,7 @@ function grid_generator(world) {
     svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
     // X
-    for(let i = -10; i <= 10; i++) {
+    for(let i = -20; i <= 20; i++) {
 
         const line = document.createElement('line');
 
@@ -86,6 +86,7 @@ function grid_generator(world) {
         line.setAttribute('y1', i * 200 + CENTER.y)
         line.setAttribute('x2', world.width);
         line.setAttribute('y2', i * 200 + CENTER.y)
+
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
 
@@ -94,7 +95,7 @@ function grid_generator(world) {
     }
 
     // Z
-    for(let i = -10; i <= 10; i++) {
+    for(let i = -20; i <= 20; i++) {
 
         const line = document.createElement('line');
 
@@ -102,6 +103,7 @@ function grid_generator(world) {
         line.setAttribute('x1', i * 200 + CENTER.x)
         line.setAttribute('y2', world.height);
         line.setAttribute('x2', i * 200 + CENTER.x);
+
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
 

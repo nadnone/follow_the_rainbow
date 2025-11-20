@@ -10,4 +10,3 @@ export const SCREEN_CENTER = {
   "y": window.innerHeight/2
 }
 
-export const FACTOR = 1 / (window.innerWidth / world_data.width)
