@@ -1,19 +1,18 @@
-import { CENTER } from './constants.js'
+import { CENTER, SCREEN_CENTER } from './constants.js'
 
-function scale_generator() {
+function scale_generator(world) {
 
     let svg = document.createElement("svg")
     svg.setAttribute("class", "graduationSVG")
-    svg.setAttribute("viewBox", `0 0 ${10*200*2} 25`)
-
+    svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
     // X
     for(let i = -10; i <= 10; i++) {
 
         const text = document.createElement('text');
 
-        text.setAttribute('x', (i + 10) * 200);
-        text.setAttribute('y', 40);
+        text.setAttribute('x', i * 200 + CENTER.x);
+        text.setAttribute('y', world.height/2);
         text.setAttribute("class", "graduationText");
         text.innerText = `${i * 200}`;
 
@@ -26,8 +25,8 @@ function scale_generator() {
 
         const text = document.createElement('text');
 
-        text.setAttribute('x', 10*200);
-        text.setAttribute('y', i * 200 + 40);
+        text.setAttribute('x', world.width/2);
+        text.setAttribute('y', i * 200 + CENTER.y)
         text.setAttribute("class", "graduationText");
         text.innerText = `${i * 200}`;
 
@@ -73,10 +72,10 @@ function scale_generator() {
 
 }
 
-function grid_generator() {
+function grid_generator(world) {
 
     let svg = document.createElement("svg")
-    svg.setAttribute("viewBox", `0 0 ${10*200*2} 25`)
+    svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
     // X
     for(let i = -10; i <= 10; i++) {
@@ -84,9 +83,9 @@ function grid_generator() {
         const line = document.createElement('line');
 
         line.setAttribute('x1', 0);
-        line.setAttribute('y1', i * 200 + 20)
-        line.setAttribute('x2', 10*200*2);
-        line.setAttribute('y2', i * 200 + 20);
+        line.setAttribute('y1', i * 200 + CENTER.y)
+        line.setAttribute('x2', world.width);
+        line.setAttribute('y2', i * 200 + CENTER.y)
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
 
@@ -99,10 +98,10 @@ function grid_generator() {
 
         const line = document.createElement('line');
 
-        line.setAttribute('y1', -10*200*2);
-        line.setAttribute('x1', (i + 10) * 200 + 20)
-        line.setAttribute('y2', 10*200*2);
-        line.setAttribute('x2', (i + 10) * 200 + 20);
+        line.setAttribute('y1', -world.width);
+        line.setAttribute('x1', i * 200 + CENTER.x)
+        line.setAttribute('y2', world.height);
+        line.setAttribute('x2', i * 200 + CENTER.x);
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
 
@@ -115,9 +114,9 @@ function grid_generator() {
 }
 
 
-function draw_graduation() {
-    grid_generator()
-    scale_generator()
+function draw_graduation(world) {
+    grid_generator(world)
+    scale_generator(world)
 }
 
 export {

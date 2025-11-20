@@ -1,5 +1,5 @@
 import { CENTER, FACTOR } from './constants.js'
-
+import { get_world_data } from './fetches.js'
 export class Circle {
 
   #x;
@@ -10,24 +10,25 @@ export class Circle {
   #body;
   #svg;
 
-  constructor(title, color, x, y, r, world) {
+  constructor(title, color, x, y, r) {
     this.#x = x;
     this.#y = y;
-    this.#r = r / FACTOR;
+    this.#r = r;
     this.#title = title;
     this.#color = color;
     this.#body = document.body;
-    this.draw(CENTER.x + x/FACTOR, CENTER.y + y/FACTOR)
-    this.world = world
+    this.world = get_world_data()
+    this.draw(x + CENTER.x, y + CENTER.y)
 
     let svg = document.querySelector("svg");
     svg.setAttribute("width", this.#r)
     svg.setAttribute("height", this.#r)
 
-
   }
 
-  draw(x = this.#x, y = this.#y) {
+  async draw(x = this.#x, y = this.#y) {
+
+    const world = await this.world;
 
     let size = (window.innerWidth < 1201) ? 1.5 : 5;
 
@@ -49,6 +50,7 @@ export class Circle {
 
 
     let svg = document.querySelector('.graph')
+    svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
     svg.appendChild(circle);
     svg.appendChild(base);
     this.#body.appendChild(svg);

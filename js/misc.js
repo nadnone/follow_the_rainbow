@@ -1,13 +1,12 @@
 import { get_world_data } from './fetches.js'
-import { CENTER, FACTOR } from './constants.js'
+import { CENTER, FACTOR, SCREEN_CENTER } from './constants.js'
 
 const world = await get_world_data();
 
 document.body.addEventListener('mousemove', (ev) => {
 
-      let world_x = (ev.clientX - CENTER.x) * FACTOR
-      let world_y = (ev.clientY - CENTER.y) * FACTOR
-
+      let world_x = world.width / (window.innerWidth / ev.clientX) - CENTER.x
+      let world_y = world.height / (window.innerHeight / ev.clientY) - CENTER.y
 
       const title = ev.target.attributes.title?.value;
 

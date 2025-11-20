@@ -38,7 +38,7 @@ async function init() {
         parseFloat(x),
         parseFloat(y),
         300,
-        world_data)
+        )
     )
 
   }
@@ -47,4 +47,4 @@ async function init() {
 }
 
 init()
-draw_graduation()
+draw_graduation(world_data)
