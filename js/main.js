@@ -1,6 +1,6 @@
 import { get_homes_data, get_world_data } from './fetches.js'
 import { Circle } from './Circle.js'
-import { world_data } from './misc.js'
+import { world_data, phones, computer } from './misc.js'
 import { draw_graduation} from './gridGenerator.js'
 
 const CURRENT = {
@@ -48,3 +48,11 @@ async function init() {
 
 init()
 draw_graduation(world_data)
+
+if (window.availWidth < 1200)
+{
+  phones();
+}
+else {
+  computer()
+}

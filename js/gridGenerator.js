@@ -1,4 +1,4 @@
-import { CENTER, SCREEN_CENTER } from './constants.js'
+import { CENTER, SCREEN_CENTER, PANEL_HEIGHT, FACTOR_SCALE } from './constants.js'
 
 function scale_generator(world) {
 
@@ -11,7 +11,7 @@ function scale_generator(world) {
 
         const text = document.createElement('text');
 
-        text.setAttribute('x', i * 200 + CENTER.x);
+        text.setAttribute('x', (i * 200) + CENTER.x);
         text.setAttribute('y', world.height/2);
         text.setAttribute("class", "graduationText");
         text.innerText = `${i * 200}`;
@@ -26,7 +26,7 @@ function scale_generator(world) {
         const text = document.createElement('text');
 
         text.setAttribute('x', world.width/2);
-        text.setAttribute('y', i * 200 + CENTER.y)
+        text.setAttribute('y', (i * 200 * FACTOR_SCALE) + CENTER.y)
         text.setAttribute("class", "graduationText");
         text.innerText = `${i * 200}`;
 
@@ -43,7 +43,7 @@ function scale_generator(world) {
 
     // down (z)
     arrow = document.createElement('polyline')
-    points = `${CENTER.x - 200},${CENTER.y + 1800} ${CENTER.x - 300},${CENTER.y + 1600} ${CENTER.x - 100},${CENTER.y + 1600}`
+    points = `${CENTER.x - 200},${CENTER.y + 1600} ${CENTER.x - 300},${CENTER.y + 1400} ${CENTER.x - 100},${CENTER.y + 1400}`
     arrow.setAttribute("points", points);
     arrow.setAttribute("style", "fill:black")
     svg.appendChild(arrow);
@@ -55,20 +55,20 @@ function scale_generator(world) {
     let text = document.createElement('text');
     text.innerText = "Z";
     text.setAttribute("x", CENTER.x - 250);
-    text.setAttribute("y", CENTER.y + 1500);
+    text.setAttribute("y", CENTER.y + 1300);
     text.setAttribute("class", "axisTEXT")
     svg.appendChild(text);
 
     // X
     text = document.createElement('text');
     text.innerText = "X";
-    text.setAttribute("x", CENTER.x + 1550);
+    text.setAttribute("x", CENTER.x + 1500);
     text.setAttribute("y", CENTER.y - 150);
     text.setAttribute("class", "axisTEXT")
     svg.appendChild(text);
 
 
-    document.body.appendChild(svg);
+    document.querySelector('.container').appendChild(svg);
 
 }
 
@@ -77,15 +77,15 @@ function grid_generator(world) {
     let svg = document.createElement("svg")
     svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
-    // X
-    for(let i = -20; i <= 20; i++) {
+    // Z
+    for(let i = -10; i <= 10; i++) {
 
         const line = document.createElement('line');
 
-        line.setAttribute('x1', 0);
-        line.setAttribute('y1', i * 200 + CENTER.y)
+        line.setAttribute('x1', -world.width);
+        line.setAttribute('y1', (i * 200 * FACTOR_SCALE) + CENTER.y)
         line.setAttribute('x2', world.width);
-        line.setAttribute('y2', i * 200 + CENTER.y)
+        line.setAttribute('y2', (i * 200 * FACTOR_SCALE) + CENTER.y)
 
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
@@ -94,12 +94,12 @@ function grid_generator(world) {
 
     }
 
-    // Z
-    for(let i = -20; i <= 20; i++) {
+    // X
+    for(let i = -10; i <= 10; i++) {
 
         const line = document.createElement('line');
 
-        line.setAttribute('y1', -world.width);
+        line.setAttribute('y1', -world.height);
         line.setAttribute('x1', i * 200 + CENTER.x)
         line.setAttribute('y2', world.height);
         line.setAttribute('x2', i * 200 + CENTER.x);
@@ -111,7 +111,7 @@ function grid_generator(world) {
 
     }
 
-    document.body.appendChild(svg);
+    document.querySelector('.container').appendChild(svg);
 
 }
 

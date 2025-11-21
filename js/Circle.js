@@ -17,7 +17,7 @@ export class Circle {
     this.#r = r;
     this.#title = title;
     this.#color = color;
-    this.#body = document.body;
+    this.#body = document.querySelector(".container");
     this.world = get_world_data()
     this.draw(x + CENTER.x, y + CENTER.y)
 
