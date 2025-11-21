@@ -32,7 +32,7 @@ document.body.addEventListener('mousemove', (ev) => {
 
       if (screen.availWidth < 1200)
       {
-            document.querySelector('.panel').style.width = '50%'
+            document.querySelector('.panel').style.width = `${screenWidth/4}px`
             document.querySelector('.panel').style.fontSize = '32px'
             document.querySelector('.panel').style.transform = `translateX(${ev.clientX - screenWidth/2}px) ` +
                                                             `translateY(${ev.clientY - screenHeight/2}px)`
