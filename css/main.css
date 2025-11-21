@@ -21,14 +21,15 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  position: absolute;
-  width: 100%;
-  height: 10vh;
+  position: fixed;
+  width: 15%;
+  height: 5%;
+  top: 50%;
+  left: 50%;
   background-color: var(--background-panel);
   z-index: 2;
   opacity: 0.8;
 }
-
 
 .graph {
   display: block;

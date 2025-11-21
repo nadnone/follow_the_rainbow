@@ -28,7 +28,24 @@ document.body.addEventListener('mousemove', (ev) => {
       document.querySelector(".title").innerText = (title != undefined) ? title : "FREE"
       document.querySelector(".coords").innerText = `X: ${world_x.toFixed(0)} Z: ${world_y.toFixed(0)}`;
 
+
+
+      if (screen.availWidth < 1200)
+      {
+            document.querySelector('.panel').style.width = '800px'
+            document.querySelector('.panel').style.fontSize = '80px'
+            document.querySelector('.panel').style.transform = `translateX(${world_x}px) translateY(${world_y}px)`
+      }
+      else
+      {
+            document.querySelector('.panel').style.fontSize = '18px'
+            document.querySelector('.panel').style.left = 'calc(50% - 7.5%)'
+            document.querySelector('.panel').style.top = 'calc(50% - 2.5%)'
+
+      }
+
 });
+
 
 
 export const world_data = await get_world_data()

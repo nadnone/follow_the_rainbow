@@ -24,12 +24,6 @@ async function init() {
     let x = parseFloat(table[1])
     let y = parseFloat(table[2])
 
-    if (table[1] == 0 || table[2] == 0)
-    {
-      x = 0
-      y = 0
-    }
-
 
     homesList.push(
       new Circle(
