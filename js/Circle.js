@@ -1,4 +1,4 @@
-import { CENTER, FACTOR_SCALE, PANEL_HEIGHT } from './constants.js'
+import { CENTER } from './constants.js'
 import { get_world_data } from './fetches.js'
 
 export class Circle {
@@ -12,14 +12,14 @@ export class Circle {
   #svg;
 
   constructor(title, color, x, y, r) {
-    this.#x = x
-    this.#y = y + PANEL_HEIGHT * FACTOR_SCALE
+    this.#x = x;
+    this.#y = y;
     this.#r = r;
     this.#title = title;
     this.#color = color;
-    this.#body = document.querySelector(".container");
+    this.#body = document.body;
     this.world = get_world_data()
-    this.draw(x * FACTOR_SCALE + CENTER.x, y + CENTER.y)
+    this.draw(x + CENTER.x, y + CENTER.y)
 
     let svg = document.querySelector("svg");
     svg.setAttribute("width", this.#r)
