@@ -20,8 +20,8 @@ document.body.addEventListener('mousemove', (ev) => {
             worldWidthT = world.width
       }
       
-      const world_x = worldWidthT / (document.body.clientWidth / ev.clientX) - worldWidthT/2
-      const world_y = worldHeightT / (window.innerHeight / ev.clientY) - worldHeightT/2
+      const world_x = worldWidthT / (screenWidth / ev.clientX) - worldWidthT/2
+      const world_y = worldHeightT / (screenHeight / ev.clientY) - worldHeightT/2
 
       const title = ev.target.attributes.title?.value;
 
