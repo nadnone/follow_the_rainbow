@@ -5,6 +5,17 @@
   padding: 0;
 }
 
+@media only screen and (max-width < 1200) {
+
+  * {
+    width: 100vh !important;
+  }
+  body {
+    width: 100vh !important;
+  }
+
+}
+
 :root {
   --size: 10;
   --wallpaper-color: lightblue;
@@ -15,6 +26,7 @@ body {
   background-color: var(--wallpaper-color);
   display: flex;
   flex-direction: column;
+
 
 }
 
