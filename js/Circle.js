@@ -31,7 +31,7 @@ export class Circle {
 
     const world = await this.world;
 
-    let size = (window.innerWidth < 1201) ? 1.5 : 5;
+    let size = (window.innerWidth < 1201) ? 3 : 10;
 
     let circle = document.createElement("circle");
     circle.setAttribute("cx", x);
