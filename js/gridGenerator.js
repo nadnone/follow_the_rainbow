@@ -11,7 +11,7 @@ function scale_generator(world) {
 
         const text = document.createElement('text');
 
-        text.setAttribute('x', (i * 200) + CENTER.x);
+        text.setAttribute('x', (i * 200 * FACTOR_SCALE) + CENTER.x);
         text.setAttribute('y', world.height/2);
         text.setAttribute("class", "graduationText");
         text.innerText = `${i * 200}`;
@@ -24,9 +24,8 @@ function scale_generator(world) {
     for(let i = -10; i <= 10; i++) {
 
         const text = document.createElement('text');
-
         text.setAttribute('x', world.width/2);
-        text.setAttribute('y', (i * 200 * FACTOR_SCALE) + CENTER.y)
+        text.setAttribute('y', (i * 200 * ((screen.width < 1201) ? FACTOR_SCALE : 1) + CENTER.y))
         text.setAttribute("class", "graduationText");
         text.innerText = `${i * 200}`;
 
@@ -75,17 +74,17 @@ function scale_generator(world) {
 function grid_generator(world) {
 
     let svg = document.createElement("svg")
-    svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
+    svg.setAttribute("viewBox", `0 100 ${world.width} ${world.height}`)
 
-    // Z
+    // x
     for(let i = -10; i <= 10; i++) {
 
         const line = document.createElement('line');
 
         line.setAttribute('x1', -world.width);
-        line.setAttribute('y1', (i * 200 * FACTOR_SCALE) + CENTER.y)
-        line.setAttribute('x2', world.width);
-        line.setAttribute('y2', (i * 200 * FACTOR_SCALE) + CENTER.y)
+        line.setAttribute('y1', (i * 200 * ((screen.width < 1201) ? FACTOR_SCALE : 1) ) + CENTER.y)
+        line.setAttribute('x2', world.width*2);
+        line.setAttribute('y2', (i * 200 * ((screen.width < 1201) ? FACTOR_SCALE : 1) ) + CENTER.y)
 
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")
@@ -94,15 +93,15 @@ function grid_generator(world) {
 
     }
 
-    // X
+    // z
     for(let i = -10; i <= 10; i++) {
 
         const line = document.createElement('line');
 
         line.setAttribute('y1', -world.height);
-        line.setAttribute('x1', i * 200 + CENTER.x)
+        line.setAttribute('x1', (i * 200 * FACTOR_SCALE) + CENTER.x)
         line.setAttribute('y2', world.height);
-        line.setAttribute('x2', i * 200 + CENTER.x);
+        line.setAttribute('x2', (i * 200 * FACTOR_SCALE) + CENTER.x);
 
         line.setAttribute('stroke', 'black');
         line.setAttribute("class", "gridVG")

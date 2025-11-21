@@ -1,5 +1,5 @@
 import { get_world_data } from './fetches.js'
-import { CENTER, SCREEN_CENTER, SCREEN_SIZE, PANEL_HEIGHT } from './constants.js'
+import { CENTER, SCREEN_CENTER, SCREEN_SIZE, PANEL_HEIGHT, FACTOR_SCALE } from './constants.js'
 
 const world = await get_world_data();
 

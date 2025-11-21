@@ -21,3 +21,8 @@ export const SCREEN_SIZE = {
 
 export let FACTOR_SCALE = document.querySelector('.graph').clientHeight  /
                           document.querySelector('.graph').clientWidth
+
+if ( document.querySelector('.graph').clientHeight < document.querySelector('.graph').clientWidth)
+{
+  FACTOR_SCALE = document.querySelector('.graph').clientWidth / document.querySelector('.graph').clientHeight
+}
