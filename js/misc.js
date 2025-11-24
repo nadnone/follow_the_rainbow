@@ -20,28 +20,33 @@ document.body.addEventListener('mousemove', (ev) => {
             worldWidthT = world.width
       }
       
-      const world_x = worldWidthT / (screenWidth / ev.clientX) - worldWidthT/2
-      const world_y = worldHeightT / (screenHeight / ev.clientY) - worldHeightT/2
+      const world_x = worldWidthT / (screenWidth / ev.pageX) - worldWidthT/2
+      const world_y = worldHeightT / (screenHeight / ev.pageY) - worldHeightT/2
 
       const title = ev.target.attributes.title?.value;
 
       document.querySelector(".title").innerText = (title != undefined) ? title : "FREE"
       document.querySelector(".coords").innerText = `X: ${world_x.toFixed(0)} Z: ${world_y.toFixed(0)}`;
 
-
-
-      if (screen.availWidth < 1200)
+      var screenTemp
+      if (screen.availHeight>screen.availWidth)
       {
-            document.querySelector('.panel').style.width = `${screenWidth/4}px`
-            document.querySelector('.panel').style.fontSize = '32px'
-            document.querySelector('.panel').style.transform = `translateX(${ev.clientX - screenWidth/2}px) ` +
-                                                            `translateY(${ev.clientY - screenHeight/2}px)`
+            screenTemp = screen.availWidth
       }
       else
       {
-            document.querySelector('.panel').style.fontSize = '18px'
-            document.querySelector('.panel').style.left = 'calc(50% - 7.5%)'
-            document.querySelector('.panel').style.top = 'calc(50% - 2.5%)'
+            screenTemp = screen.availHeight
+      }
+
+      if (screenTemp < 1200)
+      {
+            document.querySelector('.panel').style.transform = `translateX(${ev.pageX - screenWidth/2-document.querySelector('.panel').offsetWidth/2}px) ` +
+                                                            `translateY(${ev.pageY - screenHeight/2}px)`
+      }     
+      else
+      {
+            document.querySelector('.panel').style.left = 'calc(50% - 72pt)'
+            document.querySelector('.panel').style.top = 'calc(50% - 25pt)'
 
       }
 
