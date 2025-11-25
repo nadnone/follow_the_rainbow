@@ -1,6 +1,6 @@
 import { get_homes_data, get_world_data } from './fetches.js'
 import { Circle } from './Circle.js'
-import { world_data } from './misc.js'
+import { world_data, custom_home } from './misc.js'
 import { draw_graduation} from './gridGenerator.js'
 
 const CURRENT = {
@@ -16,6 +16,8 @@ async function init() {
 
   const data = await get_homes_data();
 
+  // for guest can add their own home temporarily
+  custom_home(data)
 
   for (let i = 1; i < data.length; i++) {
 

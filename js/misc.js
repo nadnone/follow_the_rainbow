@@ -53,5 +53,20 @@ document.body.addEventListener('mousemove', (ev) => {
 });
 
 
+function custom_home(data)
+{
+
+
+      const user_x = location.search.match(/x\=([\-0-9]{1,4})/)
+      const user_y = location.search.match(/z\=([\-0-9]{1,4})/)
+
+      if (user_x != null && user_y != null)
+      {
+            data.push(`USER, ${user_x[1]}, ${user_y[1]}, black`)
+      }
+
+}
+
+export { custom_home }
 
 export const world_data = await get_world_data()
