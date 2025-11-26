@@ -1,3 +1,11 @@
+/***
+ * @author Nad'
+ *
+ * imports from external json or text files
+ */
+
+
+
 async function get_homes_data() {
 
     const res = fetch("./homes.csv")

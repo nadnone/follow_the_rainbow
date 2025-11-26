@@ -1,24 +1,22 @@
 import { get_world_data } from './fetches.js'
 
+import {
+      screenWidth,
+      screenHeight,
+      worldWidthT,
+      worldHeightT
+} from './constants.js'
+
 const world = await get_world_data();
+
+/***
+ * @author Nad', waneasle
+ *
+ * generate the wallpaper map
+ */
 
 document.body.addEventListener('mousemove', (ev) => {
 
-      const screenWidth = document.body.clientWidth
-      const screenHeight= document.body.clientHeight
-      let worldWidthT
-      let worldHeightT
-
-      if(screenWidth>=screenHeight){
-            worldWidthT = screenWidth*world.height/screenHeight
-            worldHeightT = world.height
-      }
-
-      else{
-            worldHeightT = screenHeight*world.width/screenWidth
-            worldWidthT = world.width
-      }
-      
       const world_x = worldWidthT / (screenWidth / ev.pageX) - worldWidthT/2
       const world_y = worldHeightT / (screenHeight / ev.pageY) - worldHeightT/2
 
@@ -54,6 +52,11 @@ document.body.addEventListener('mousemove', (ev) => {
 
 });
 
+/***
+ * @author Nad'
+ *
+ * create a custom home from the x,z variables given in the HTTP/GET
+ */
 
 function custom_home(data)
 {
@@ -69,6 +72,40 @@ function custom_home(data)
 
 }
 
-export { custom_home }
+/***
+ * @author Nad'
+ *
+ * generate the wallpaper map
+ */
+
+function background_scale() {
+
+      const parent = document.querySelector('.container');
+      const wallpaper = document.createElement('img');
+
+      wallpaper.src = './assets/minecraft_map.png';
+      wallpaper.style.width = `${worldWidthT}px`
+      wallpaper.style.height = `${worldHeightT}px`
+      wallpaper.style.transform = ` scale(${1.05}) translateX('${-worldWidthT/2}px') translateY('${-worldHeightT/2}px')`
+
+      parent.appendChild(wallpaper);
+}
+
+
+/***
+ * @author Nad'
+ *
+ * automatically resize the webapp when browser resized
+ */
+
+function automatic_resize() {
+
+      addEventListener('resize', () => {
+            window.location.reload();
+      })
+
+}
+
+export { custom_home, background_scale, automatic_resize }
 
 export const world_data = await get_world_data()

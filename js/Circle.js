@@ -1,3 +1,11 @@
+/***
+ * @author Nad'
+ *
+ * Circle classe for homes drawing
+ */
+
+
+
 import { CENTER } from './constants.js'
 import { get_world_data } from './fetches.js'
 

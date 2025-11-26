@@ -1,7 +1,15 @@
+/***
+ * @author Nad'
+ *
+ * main
+ */
+
+
+
 import { get_homes_data, get_world_data } from './fetches.js'
 import { Circle } from './Circle.js'
-import { world_data, custom_home } from './misc.js'
-import { draw_graduation} from './gridGenerator.js'
+import { world_data, custom_home, background_scale, automatic_resize } from './misc.js'
+import { draw_graduation } from './gridGenerator.js'
 
 const CURRENT = {
   "title": "",
@@ -44,3 +52,11 @@ async function init() {
 
 init()
 draw_graduation(world_data)
+
+/*
+ * TODO debug the scale and the position
+ */
+//background_scale()
+
+
+automatic_resize()

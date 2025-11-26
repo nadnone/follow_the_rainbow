@@ -1,5 +1,12 @@
 import { CENTER, SCREEN_CENTER } from './constants.js'
 
+/***
+ * @author Nad', waneasle
+ *
+ * generate the scale text axises
+ */
+
+
 function scale_generator(world) {
 
     let svg = document.createElement("svg")
@@ -68,13 +75,22 @@ function scale_generator(world) {
     svg.appendChild(text);
 
 
-    document.body.appendChild(svg);
+    document.querySelector('.container').appendChild(svg);
 
 }
+
+/***
+ * @author Nad', waneasle
+ *
+ * generate the grid
+ */
+
+
 
 function grid_generator(world) {
 
     let svg = document.createElement("svg")
+    svg.setAttribute("class", "grid")
     svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
     // X
@@ -111,7 +127,7 @@ function grid_generator(world) {
 
     }
 
-    document.body.appendChild(svg);
+    document.querySelector('.container').appendChild(svg);
 
 }
 

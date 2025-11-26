@@ -11,10 +11,16 @@
   --background-panel: lightgray;
 }
 
-body {
-  
-  background-color: var(--wallpaper-color)
+.container {
+  background-color: var(--wallpaper-color);
+  z-index: -1;
+}
 
+.container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .panel {
@@ -27,16 +33,15 @@ body {
   height: 28pt;
   top: 50%;
   left: 50%;
-  background-color: var(--background-panel);
   z-index: 2;
-  opacity: 0.8;
+  background-color: var(--background-panel);
+  opacity: 1;
 }
 
 .graph {
   display: block;
   position: absolute;
   top: 0;
-  opacity: 0.8;
 }
 
 .graduationSVG {
@@ -55,9 +60,4 @@ body {
   font: 128pt sans-serif;
   fill: black;
   z-index: 0;
-}
-
-.gridSVG {
-  display: block;
-  display: absolute;
 }
