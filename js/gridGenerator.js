@@ -7,7 +7,7 @@ function scale_generator(world) {
     svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
     // X
-    for(let i = -10; i <= 10; i++) {
+    for(let i = -15; i <= 15; i++) {
 
         const text = document.createElement('text');
 
@@ -21,7 +21,7 @@ function scale_generator(world) {
     }
 
     // Z
-    for(let i = -10; i <= 10; i++) {
+    for(let i = -15; i <= 15; i++) {
 
         const text = document.createElement('text');
 

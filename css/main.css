@@ -12,18 +12,19 @@
 }
 
 body {
+  
   background-color: var(--wallpaper-color)
 
 }
 
 .panel {
-  font-size: 18pt;
+  font-size: 10pt;
   display: flex;
   flex-direction: column;
   text-align: center;
   position: fixed;
-  width: 144pt;
-  height: 50pt;
+  width: 80pt;
+  height: 28pt;
   top: 50%;
   left: 50%;
   background-color: var(--background-panel);

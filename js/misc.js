@@ -45,6 +45,9 @@ document.body.addEventListener('mousemove', (ev) => {
       }     
       else
       {
+            document.querySelector('.panel').style.fontSize = '18pt'
+            document.querySelector('.panel').style.width = '144pt'
+            document.querySelector('.panel').style.height = '50pt'
             document.querySelector('.panel').style.left = 'calc(50% - 72pt)'
             document.querySelector('.panel').style.top = 'calc(50% - 25pt)'
 
