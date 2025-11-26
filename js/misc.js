@@ -1,5 +1,4 @@
 import { get_world_data } from './fetches.js'
-import { CENTER, SCREEN_CENTER } from './constants.js'
 
 const world = await get_world_data();
 
@@ -41,7 +40,7 @@ document.body.addEventListener('mousemove', (ev) => {
       if (screenTemp < 1200)
       {
             document.querySelector('.panel').style.transform = `translateX(${ev.pageX - screenWidth/2-document.querySelector('.panel').offsetWidth/2}px) ` +
-                                                            `translateY(${ev.pageY - screenHeight/2}px)`
+                                                            `translateY(${ev.pageY - screenHeight/2.1}px)`
       }     
       else
       {

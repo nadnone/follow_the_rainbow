@@ -78,7 +78,7 @@ function grid_generator(world) {
     svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
 
     // X
-    for(let i = -20; i <= 20; i++) {
+    for(let i = -15; i <= 15; i++) {
 
         const line = document.createElement('line');
 
@@ -95,7 +95,7 @@ function grid_generator(world) {
     }
 
     // Z
-    for(let i = -20; i <= 20; i++) {
+    for(let i = -15; i <= 15; i++) {
 
         const line = document.createElement('line');
 
