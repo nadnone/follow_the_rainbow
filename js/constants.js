@@ -23,29 +23,32 @@ export const SCREEN_CENTER = {
 }
 
 
+function mouseConstants()
+{
+  const screenWidth = document.body.clientWidth
+  const screenHeight = document.body.clientHeight
+  let worldWidthT
+  let worldHeightT
 
-const screenWidth = document.body.clientWidth
-const screenHeight = document.body.clientHeight
-let worldWidthT
-let worldHeightT
+  if(screenWidth>=screenHeight){
+    worldWidthT = screenWidth*world_data.height/screenHeight
+    worldHeightT = world_data.height
+  }
 
-if(screenWidth>=screenHeight){
-  worldWidthT = screenWidth*world_data.height/screenHeight
-  worldHeightT = world_data.height
+  else{
+    worldHeightT = screenHeight*world_data.width/screenWidth
+    worldWidthT = world_data.width
+  }
+  return{
+    'screenWidth': screenWidth,
+    'screenHeight': screenHeight,
+    'worldWidthT': worldWidthT, 
+    'worldHeightT': worldHeightT
+  }
 }
-
-else{
-  worldHeightT = screenHeight*world_data.width/screenWidth
-  worldWidthT = world_data.width
-}
-
-
 
 export {
-  screenWidth,
-  screenHeight,
-  worldWidthT,
-  worldHeightT,
   world_data,
-  home_data
+  home_data,
+  mouseConstants
 }

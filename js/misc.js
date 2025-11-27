@@ -1,9 +1,6 @@
 import {
-      screenWidth,
-      screenHeight,
-      worldWidthT,
-      worldHeightT,
-      world_data
+      world_data,
+      mouseConstants
 } from './constants.js'
 
 /***
@@ -14,8 +11,10 @@ import {
 
 document.body.addEventListener('mousemove', (ev) => {
 
-      const world_x = worldWidthT / (screenWidth / ev.pageX) - worldWidthT/2
-      const world_y = worldHeightT / (screenHeight / ev.pageY) - worldHeightT/2
+      let callback = mouseConstants()
+
+      const world_x = callback.worldWidthT / (callback.screenWidth / ev.pageX) - callback.worldWidthT/2
+      const world_y = callback.worldHeightT / (callback.screenHeight / ev.pageY) - callback.worldHeightT/2
 
       const title = ev.target.attributes.title?.value;
 
@@ -37,8 +36,8 @@ document.body.addEventListener('mousemove', (ev) => {
       {
             const panelmiddle = document.querySelector('.panel').offsetWidth/2;
             document.querySelector('.panel').style.transform =
-                                          `translateX(${ev.pageX - screenWidth/2 - panelmiddle}px) ` +
-                                          `translateY(${ev.pageY - screenHeight/2.1}px)`
+                                          `translateX(${ev.pageX - callback.screenWidth/2 - panelmiddle}px) ` +
+                                          `translateY(${ev.pageY - callback.screenHeight/2.1}px)`
       }     
       else
       {
@@ -80,9 +79,9 @@ function background_scale() {
       const wallpaper = document.createElement('img');
 
       wallpaper.src = './assets/minecraft_map.png';
-      wallpaper.style.width = `${worldWidthT}px`
-      wallpaper.style.height = `${worldHeightT}px`
-      wallpaper.style.transform = `scale(${1.05}) translateX('${-worldWidthT/2}px') translateY('${-worldHeightT/2}px')`
+      wallpaper.style.width = `${100}px`
+      wallpaper.style.height = `${100}px`
+      wallpaper.style.transform = `scale(${1.05}) translateX('${-100/2}px') translateY('${-100/2}px')`
 
       parent.appendChild(wallpaper);
 }

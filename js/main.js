@@ -19,7 +19,7 @@ new GridGenerator()
 /*
  * TODO debug the scale and the position
  */
-//background_scale()
+background_scale()
 
 // automatic resizing of the elements when browser window resized
 automatic_resize()
