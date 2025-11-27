@@ -6,7 +6,11 @@
 
 
 
-import { world_data } from './misc.js'
+import { get_homes_data, get_world_data } from './fetches.js'
+
+const world_data = await get_world_data();
+const home_data = await get_homes_data();
+
 
 export const CENTER = {
   "x": world_data.width/2,
@@ -35,9 +39,13 @@ else{
   worldWidthT = world_data.width
 }
 
+
+
 export {
   screenWidth,
   screenHeight,
   worldWidthT,
-  worldHeightT
+  worldHeightT,
+  world_data,
+  home_data
 }

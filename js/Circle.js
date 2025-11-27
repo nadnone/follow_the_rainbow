@@ -3,11 +3,8 @@
  *
  * Circle classe for homes drawing
  */
+import { CENTER, world_data } from './constants.js'
 
-
-
-import { CENTER } from './constants.js'
-import { get_world_data } from './fetches.js'
 
 export class Circle {
 
@@ -17,16 +14,15 @@ export class Circle {
   #color;
   #title;
   #body;
-  #svg;
 
-  constructor(title, color, x, y, r) {
+  constructor(title, color, x, y) {
     this.#x = x;
     this.#y = y;
-    this.#r = r;
+    this.#r = 300;
     this.#title = title;
     this.#color = color;
     this.#body = document.body;
-    this.world = get_world_data()
+    this.world = world_data
     this.draw(x + CENTER.x, y + CENTER.y)
 
     let svg = document.querySelector("svg");
@@ -36,8 +32,6 @@ export class Circle {
   }
 
   async draw(x = this.#x, y = this.#y) {
-
-    const world = await this.world;
 
     let size = (window.innerWidth < 1201) ? 3 : 10;
 
@@ -59,7 +53,7 @@ export class Circle {
 
 
     let svg = document.querySelector('.graph')
-    svg.setAttribute("viewBox", `0 0 ${world.width} ${world.height}`)
+    svg.setAttribute("viewBox", `0 0 ${this.world.width} ${this.world.height}`)
     svg.appendChild(circle);
     svg.appendChild(base);
     this.#body.appendChild(svg);

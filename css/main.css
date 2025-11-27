@@ -35,7 +35,8 @@
   left: 50%;
   z-index: 2;
   background-color: var(--background-panel);
-  opacity: 1;
+  opacity: 0.8;
+  visibility: hidden;
 }
 
 .graph {
